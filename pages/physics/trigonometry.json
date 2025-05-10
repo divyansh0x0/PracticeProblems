@@ -1,0 +1,8 @@
+[
+    {
+        "question": "Simplify the expression: $\\frac{\\sin(x) + \\cos(x)}{1 + \\sin(x)\\cos(x)}$",
+        "hint": "Try using trigonometric identities to simplify the expression.",
+        "answer": "$\\frac{\\sin(x) + \\cos(x)}{1 + \\sin(x)\\cos(x)} = \\tan\\left(\\frac{x}{2}\\right)$",
+        "difficulty": "moderate"
+      }
+]

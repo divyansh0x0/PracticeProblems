@@ -1,171 +1,502 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trigonometry Questions for Physics</title>
+  <link rel="stylesheet" href="/katex.min.css">
+  <script defer src="/katex.min.js"></script>
+
+  <script defer src="/auto-renderer.min.js"></script>
+
   <style>
-    body {
+    * {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #303030;
+      color: #fff;
       padding: 20px;
-      background: #f4f4f4;
     }
-    h1, h2 {
-      color: #2c3e50;
+
+    p {
+      margin: 10px 0;
+      font-size: 20px;
     }
-    .section {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    button {
+      margin: 5px;
+      padding: 10px;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    h2 {
+      font-size: 24px;
+      margin: 20px 0px 20px 0;
     }
     .question {
-      font-weight: bold;
+      background-color: #ffffff20;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
     }
-    .hint, .answer {
-      display: none;
-      margin: 5px 0;
-    }
-    .hint {
-      color: #2980b9;
+    .hint{
+      background-color: #ffffff20;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
     }
     .answer {
-      color: #27ae60;
+      background-color: #00ff0820;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
     }
-    button {
-      margin-right: 10px;
-      margin-top: 5px;
-      cursor: pointer;
-      background-color: #3498db;
-      border: none;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 4px;
+
+
+    #questions-easy .question {
+      background-color: rgba(0, 200, 250, 0.1);
     }
-    button:hover {
-      background-color: #2980b9;
+
+    #questions-moderate .question {
+      background-color: rgba(166, 255, 0, 0.1);
+    }
+
+    #questions-hard .question {
+      background-color: rgba(255, 247, 0, 0.1);
+    }
+    
+    #questions-extreme .question {
+      background-color: rgba(255, 0, 0, 0.1);
     }
   </style>
 </head>
+
 <body>
-  <h1>Trigonometry Questions Required for Physics</h1>
 
-  <div class="section">
-    <h2>🔹 Easy</h2>
+  <section id="questions">
 
-    <div class="qa">
-      <p class="question">1. A right triangle has one angle of 30°. If the hypotenuse is 10 cm, find the side opposite the 30° angle.</p>
-      <button onclick="toggle(this, 'hint1')">Show Hint</button>
-      <button onclick="toggle(this, 'answer1')">Show Answer</button>
-      <p id="hint1" class="hint">Hint: Use sin 30° = 1/2.</p>
-      <p id="answer1" class="answer">Answer: 10 × 1/2 = <strong>5 cm</strong></p>
-    </div>
-
-    <div class="qa">
-      <p class="question">2. What is the sine of 90°?</p>
-      <button onclick="toggle(this, 'hint2')">Show Hint</button>
-      <button onclick="toggle(this, 'answer2')">Show Answer</button>
-      <p id="hint2" class="hint">Hint: It's the maximum value of sine.</p>
-      <p id="answer2" class="answer">Answer: <strong>1</strong></p>
-    </div>
-
-    <div class="qa">
-      <p class="question">3. If cos θ = 0.6, find sin θ (θ in the first quadrant).</p>
-      <button onclick="toggle(this, 'hint3')">Show Hint</button>
-      <button onclick="toggle(this, 'answer3')">Show Answer</button>
-      <p id="hint3" class="hint">Hint: sin²θ + cos²θ = 1</p>
-      <p id="answer3" class="answer">Answer: sin²θ = 0.64 → sin θ = <strong>0.8</strong></p>
-    </div>
-
-    <div class="qa">
-      <p class="question">4. Verify the identity: sin²θ + cos²θ = 1</p>
-      <button onclick="toggle(this, 'hint4')">Show Hint</button>
-      <button onclick="toggle(this, 'answer4')">Show Answer</button>
-      <p id="hint4" class="hint">Hint: Use unit circle or Pythagoras in right triangle.</p>
-      <p id="answer4" class="answer">Answer: Always true for any angle.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>🔹 Moderate</h2>
-
-    <div class="qa">
-      <p class="question">5. A block is on an inclined plane at 37°. Find gravitational force component down the slope (mass = 5 kg).</p>
-      <button onclick="toggle(this, 'hint5')">Show Hint</button>
-      <button onclick="toggle(this, 'answer5')">Show Answer</button>
-      <p id="hint5" class="hint">Hint: F = mg sin θ</p>
-      <p id="answer5" class="answer">Answer: ≈ <strong>29.49 N</strong></p>
-    </div>
-
-    <div class="qa">
-      <p class="question">6. A projectile is launched at 25 m/s at 60°. Find horizontal and vertical components.</p>
-      <button onclick="toggle(this, 'hint6')">Show Hint</button>
-      <button onclick="toggle(this, 'answer6')">Show Answer</button>
-      <p id="hint6" class="hint">Hint: Use vx = v cos θ, vy = v sin θ</p>
-      <p id="answer6" class="answer">Answer: vx = 12.5 m/s, vy ≈ <strong>21.65 m/s</strong></p>
-    </div>
-
-    <div class="qa">
-      <p class="question">7. A pendulum makes a 10° angle with vertical, length = 2 m. Find horizontal displacement.</p>
-      <button onclick="toggle(this, 'hint7')">Show Hint</button>
-      <button onclick="toggle(this, 'answer7')">Show Answer</button>
-      <p id="hint7" class="hint">Hint: x = L sin θ</p>
-      <p id="answer7" class="answer">Answer: ≈ <strong>0.347 m</strong></p>
-    </div>
-
-    <div class="qa">
-      <p class="question">8. A force of 50 N acts at 45°. Find the vertical component.</p>
-      <button onclick="toggle(this, 'hint8')">Show Hint</button>
-      <button onclick="toggle(this, 'answer8')">Show Answer</button>
-      <p id="hint8" class="hint">Hint: Fy = F sin θ</p>
-      <p id="answer8" class="answer">Answer: ≈ <strong>35.36 N</strong></p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>🔹 Challenging</h2>
-
-    <div class="qa">
-      <p class="question">9. Wave: y(x, t) = 0.05 sin(4πx - 200πt). Where is displacement always zero?</p>
-      <button onclick="toggle(this, 'hint9')">Show Hint</button>
-      <button onclick="toggle(this, 'answer9')">Show Answer</button>
-      <p id="hint9" class="hint">Hint: sin = 0 when argument is nπ</p>
-      <p id="answer9" class="answer">Answer: x = <strong>n/2</strong>, n ∈ ℤ</p>
-    </div>
-
-    <div class="qa">
-      <p class="question">10. SHM: x(t) = A cos(ωt + φ). When is velocity zero?</p>
-      <button onclick="toggle(this, 'hint10')">Show Hint</button>
-      <button onclick="toggle(this, 'answer10')">Show Answer</button>
-      <p id="hint10" class="hint">Hint: v(t) = -Aω sin(ωt + φ)</p>
-      <p id="answer10" class="answer">Answer: t = <strong>(nπ - φ)/ω</strong></p>
-    </div>
-
-    <div class="qa">
-      <p class="question">11. Show radial acceleration a = v²/r</p>
-      <button onclick="toggle(this, 'hint11')">Show Hint</button>
-      <button onclick="toggle(this, 'answer11')">Show Answer</button>
-      <p id="hint11" class="hint">Hint: Use velocity vector change direction in circular motion</p>
-      <p id="answer11" class="answer">Answer: <strong>a = v²/r</strong> from limit of Δv/Δt</p>
-    </div>
-
-    <div class="qa">
-      <p class="question">12. Two waves: y₁ = A sin(kx - ωt), y₂ = A sin(kx - ωt + φ). Find resultant amplitude.</p>
-      <button onclick="toggle(this, 'hint12')">Show Hint</button>
-      <button onclick="toggle(this, 'answer12')">Show Answer</button>
-      <p id="hint12" class="hint">Hint: Use identity: sin α + sin β = 2 sin((α+β)/2) cos((α−β)/2)</p>
-      <p id="answer12" class="answer">Answer: Amplitude = <strong>2A cos(φ/2)</strong></p>
-    </div>
-  </div>
-
-  <script>
-    function toggle(button, id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === "block" ? "none" : "block";
-      button.textContent = el.style.display === "block" ? "Hide " + button.textContent.slice(5) : "Show " + button.textContent.slice(5);
-    }
-  </script>
+  </section>
 </body>
+<script>
+  /**
+   *  You are a JSON generator
+Each question has a question, hint, answer and difficulty (will be from 1 to 4). The question should be targeted for 12th grade passed physics student. Avoid any super easy questions.
+Use latex and $ as inline delimiters for it
+Give me 25 questions on pure trigonometry. DO NOT INCLUDE INVERSE TRIGONOMETRY FUNCTION and make easy to medium questions related to problems seen in physics 
+*/
+
+  let questions = [
+  {
+    "question": "Solve the equation $\\sin(\\omega t) = 0.5$ for $t$ in the interval $[0, \\frac{2\\pi}{\\omega}]$.",
+    "hint": "Use the inverse of sine and consider the general solution within the specified interval.",
+    "answer": "$t = \\frac{1}{\\omega}\\left(\\frac{\\pi}{6}\\right), \\frac{1}{\\omega}\\left(\\pi - \\frac{\\pi}{6}\\right)$",
+    "difficulty": 2
+  },
+  {
+    "question": "A wave described by $y = A\\sin(kx)$ reaches its maximum at $x = \\frac{\\pi}{2k}$. Confirm this using trigonometric reasoning.",
+    "hint": "Find when $\\sin(kx) = 1$",
+    "answer": "$\\sin(kx) = 1$ when $kx = \\frac{\\pi}{2} \\Rightarrow x = \\frac{\\pi}{2k}$",
+    "difficulty": 2
+  },
+  {
+    "question": "Determine all values of $\\theta$ in $[0, 2\\pi]$ for which $\\cos(\\theta) = -\\frac{1}{2}$.",
+    "hint": "Find the angles on the unit circle where cosine is $-\\frac{1}{2}$.",
+    "answer": "$\\theta = \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$",
+    "difficulty": 2
+  },
+  {
+    "question": "The function $x(t) = A\\cos(\\omega t)$ represents the position in SHM. At what times is the displacement zero within one period?",
+    "hint": "Set $\\cos(\\omega t) = 0$",
+    "answer": "$\\omega t = \\frac{\\pi}{2}, \\frac{3\\pi}{2} \\Rightarrow t = \\frac{\\pi}{2\\omega}, \\frac{3\\pi}{2\\omega}$",
+    "difficulty": 2
+  },
+  {
+    "question": "Sketch one period of $y = 2\\sin(\\omega t)$ and indicate amplitude, period, and zero crossings.",
+    "hint": "Use amplitude $2$ and period $\\frac{2\\pi}{\\omega}$.",
+    "answer": "Amplitude = 2, Period = $\\frac{2\\pi}{\\omega}$, zero crossings at $t = 0, \\frac{\\pi}{\\omega}, \\frac{2\\pi}{\\omega}$",
+    "difficulty": 2
+  },
+  {
+    "question": "Find all solutions to $\\sin(2\\theta) = \\sin(\\theta)$ in the interval $[0, 2\\pi]$.",
+    "hint": "Use identity $\\sin(2\\theta) - \\sin(\\theta) = 0$ and solve.",
+    "answer": "$\\theta = 0, \\pi, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$",
+    "difficulty": 2
+  },
+  {
+    "question": "A signal voltage varies as $V(t) = V_0 \\cos(\\omega t)$. When does it reach half its maximum positive value for the first time?",
+    "hint": "Set $\\cos(\\omega t) = 0.5$ and solve for $t$.",
+    "answer": "$\\omega t = \\frac{\\pi}{3} \\Rightarrow t = \\frac{\\pi}{3\\omega}$",
+    "difficulty": 2
+  },
+  {
+    "question": "The function $x(t) = A\\sin(\\omega t + \\phi)$ has a minimum value at $t = t_0$. Find $\\phi$ in terms of $\\omega$ and $t_0$.",
+    "hint": "Minimum of sine occurs at $\\omega t + \\phi = \\frac{3\\pi}{2}$",
+    "answer": "$\\phi = \\frac{3\\pi}{2} - \\omega t_0$",
+    "difficulty": 2
+  },
+  {
+    "question": "If $\\sin\\theta = \\cos\\theta$, find all possible values of $\\theta$ in $[0, 2\\pi]$.",
+    "hint": "Divide both sides: $\\tan\\theta = 1$",
+    "answer": "$\\theta = \\frac{\\pi}{4}, \\frac{5\\pi}{4}$",
+    "difficulty": 2
+  },
+  {
+    "question": "Given that $\\cos(\\omega t) = 0$, what are the corresponding values of $\\omega t$ in one full cycle?",
+    "hint": "Find angles where cosine is zero in $[0, 2\\pi]$.",
+    "answer": "$\\omega t = \\frac{\\pi}{2}, \\frac{3\\pi}{2}$",
+    "difficulty": 2
+  },
+  {
+    "question": "For the function $y = \\cos(2\\theta)$, find all values of $\\theta$ in $[0, 2\\pi]$ for which $y = 1$.",
+    "hint": "Set $\\cos(2\\theta) = 1$ and solve for $2\\theta$ in $[0, 4\\pi]$",
+    "answer": "$2\\theta = 0, 2\\pi, 4\\pi \\Rightarrow \\theta = 0, \\pi, 2\\pi$",
+    "difficulty": 2
+  },
+  {
+    "question": "In SHM, $x(t) = A\\cos(\\omega t)$. Find $t$ when the particle reaches its mean position for the second time.",
+    "hint": "Mean position when $\\cos(\\omega t) = 0$",
+    "answer": "Second time: $\\omega t = \\frac{3\\pi}{2} \\Rightarrow t = \\frac{3\\pi}{2\\omega}$",
+    "difficulty": 2
+  },
+
+  {
+    "question": "A wave is described by $y(x,t) = A \\sin(kx - \\omega t)$. What is the maximum slope (i.e., $\\frac{dy}{dx}$) at any point?",
+    "hint": "Differentiate the wave equation with respect to $x$.",
+    "answer": "$\\frac{dy}{dx} = Ak\\cos(kx - \\omega t)$, maximum is $Ak$",
+    "difficulty": 3
+  },
+  {
+    "question": "Two forces $F_1$ and $F_2$ act at an angle $\\theta$ to each other. What is the magnitude of their resultant?",
+    "hint": "Use the law of cosines for vectors.",
+    "answer": "$R = \\sqrt{F_1^2 + F_2^2 + 2F_1F_2\\cos\\theta}$",
+    "difficulty": 3
+  },
+  {
+    "question": "Resolve a force $F$ at angle $\\theta$ into horizontal and vertical components.",
+    "hint": "Use $F_x = F\\cos\\theta$ and $F_y = F\\sin\\theta$",
+    "answer": "$F_x = F\\cos\\theta$, $F_y = F\\sin\\theta$",
+    "difficulty": 1
+  },
+  {
+    "question": "A mass is suspended by two strings making angles $\\theta_1$ and $\\theta_2$ with the horizontal. Write the expression for tension in the strings.",
+    "hint": "Use Lami’s theorem or resolve forces horizontally and vertically.",
+    "answer": "Use $\\frac{T_1}{\\sin\\theta_2} = \\frac{T_2}{\\sin\\theta_1} = \\frac{mg}{\\sin(\\theta_1 + \\theta_2)}$",
+    "difficulty": 3
+  },
+  {
+    "question": "A simple harmonic motion is given by $x = A\\cos(\\omega t + \\phi)$. What is the velocity at $t = 0$?",
+    "hint": "Differentiate to find velocity: $v = -A\\omega\\sin(\\omega t + \\phi)$",
+    "answer": "$v(0) = -A\\omega\\sin\\phi$",
+    "difficulty": 2
+  },
+  {
+    "question": "If $\\sin\\theta = \\frac{3}{5}$ and $\\theta$ is in the first quadrant, find $\\cos 2\\theta$.",
+    "hint": "Use identity $\\cos 2\\theta = 1 - 2\\sin^2\\theta$",
+    "answer": "$\\cos 2\\theta = 1 - 2\\left(\\frac{3}{5}\\right)^2 = 1 - 2\\cdot\\frac{9}{25} = \\frac{7}{25}$",
+    "difficulty": 2
+  },
+  {
+    "question": "Find $\\tan(\\theta)$ given $\\sin\\theta = \\frac{4}{5}$ and $\\theta$ in the first quadrant.",
+    "hint": "Use $\\cos\\theta = \\sqrt{1 - \\sin^2\\theta}$ and then $\\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta}$",
+    "answer": "$\\tan\\theta = \\frac{4}{3}$",
+    "difficulty": 2
+  },
+  {
+    "question": "In a triangle with angles $A$, $B$, and $C$, if $\\sin A = \\sin B$, what can you say about the triangle?",
+    "hint": "Equal sines imply equal opposite angles in a triangle",
+    "answer": "$A = B$, so the triangle is isosceles",
+    "difficulty": 1
+  },
+  {
+    "question": "Evaluate $\\sin(60^\\circ)\\cos(30^\\circ) + \\cos(60^\\circ)\\sin(30^\\circ)$",
+    "hint": "Use angle addition formula: $\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$",
+    "answer": "$\\sin(90^\\circ) = 1$",
+    "difficulty": 1
+  },
+  {
+    "question": "Show that $1 + \\tan^2\\theta = \\sec^2\\theta$",
+    "hint": "This is a standard Pythagorean identity derived from dividing $\\sin^2\\theta + \\cos^2\\theta = 1$ by $\\cos^2\\theta$",
+    "answer": "$\\tan\\theta = 1 + \\frac{P^2}{B^2} =\\frac{P^2 + B^2}{B^2} = \\frac{H^2}{B^2} = \\sec^2\\theta $",
+    "difficulty": 1
+  },
+  {
+    "question": "Find the amplitude of the function $y = 3\\cos(2t + \\frac{\\pi}{4})$",
+    "hint": "Amplitude is the coefficient of cosine",
+    "answer": "Amplitude is 3",
+    "difficulty": 1
+  },
+  {
+    "question": "Prove that $\\sin^2\\theta + \\cos^2\\theta = 1$",
+    "hint": "Use unit circle definition",
+    "answer": "$\\sin^2\\theta + \\cos^2\\theta = 1$",
+    "difficulty": 1
+  },
+  {
+    "question": "Simplify $\\sin\\theta\\cos\\theta$ using a double angle identity",
+    "hint": "Use $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$",
+    "answer": "$\\sin\\theta\\cos\\theta = \\frac{1}{2}\\sin 2\\theta$",
+    "difficulty": 1
+  },
+  {
+    "question": "In a right triangle, $\\tan\\theta = \\frac{3}{4}$. Find $\\sin\\theta$.",
+    "hint": "Draw triangle and use Pythagoras to get hypotenuse",
+    "answer": "$\\sin\\theta = \\frac{3}{5}$",
+    "difficulty": 1
+  },
+  {
+    "question": "Find $\\cos(2\\theta)$ given $\\cos\\theta = \\frac{5}{13}$ and $\\theta$ is in the fourth quadrant.",
+    "hint": "Use $\\cos 2\\theta = 2\\cos^2\\theta - 1$",
+    "answer": "$\\cos 2\\theta = 2\\cdot\\left(\\frac{5}{13}\\right)^2 - 1 = \\frac{50}{169} - 1 = -\\frac{119}{169}$",
+    "difficulty": 3
+  },
+  {
+    "question": "What is the average power delivered by a sinusoidal force $F = F_0\\sin(\\omega t)$ acting on a mass?",
+    "hint": "Average of $\\sin^2(\\omega t)$ over a period is $\\frac{1}{2}$",
+    "answer": "Average power is $\\frac{F_0^2}{2m\\omega^2}$ (derivation depends on context)",
+    "difficulty": 3
+  },
+  {
+    "question": "Find $\\cos(75^\\circ)$ using angle addition identities.",
+    "hint": "Use $\\cos(75^\\circ) = \\cos(45^\\circ + 30^\\circ)$",
+    "answer": "$\\cos 75^\\circ = \\cos 45^\\circ\\cos 30^\\circ - \\sin 45^\\circ\\sin 30^\\circ = \\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+    "difficulty": 4
+  },
+  {
+    "question": "A rod of length $L$ makes angle $\\theta$ with the vertical. What is its horizontal projection?",
+    "hint": "Use $L\\sin\\theta$",
+    "answer": "Projection = $L\\sin\\theta$",
+    "difficulty": 2
+  },
+  {
+    "question": "Find the time period of a simple pendulum swinging with small angle $\\theta$.",
+    "hint": "Use $T = 2\\pi\\sqrt{\\frac{L}{g}}$, independent of $\\theta$ for small angles",
+    "answer": "$T = 2\\pi\\sqrt{\\frac{L}{g}}$",
+    "difficulty": 2
+  },
+    {
+      "question": "A projectile is launched with initial velocity $v_0$ at an angle $\theta$ with the horizontal. The horizontal range is given by $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$. If the maximum range for a given $v_0$ is $R_{max}$, what is the value of $\\sin^2(\\theta)$ when the range is $R_{max}/2$? Assume $0 < \\theta < \\pi/2$.",
+      "hint": "The maximum range occurs when $\\sin(2\\theta)$ is maximum. Find the angle for maximum range first, then use the range formula to find the angle for $R_{max}/2$ and calculate $\\sin^2(\\theta)$ for that angle.",
+      "answer": "$\\frac{3 - \\sqrt{5}}{8}$ or $\\frac{3 + \\sqrt{5}}{8}$ (corresponding to two possible angles)",
+      "difficulty": 4
+    },
+    {
+      "question": "Simplify the expression: $\\frac{\\sin(3\\theta) + \\sin(\\theta)}{\\cos(3\\theta) + \\cos(\\theta)}$",
+      "hint": "Use sum-to-product trigonometric identities.",
+      "answer": "$\\tan(2\\theta)$",
+      "difficulty": 2
+    },
+    {
+      "question": "Two forces $F_1$ and $F_2$ act at a point. The angle between them is $\\theta$. The magnitude of the resultant force is $R = \\sqrt{F_1^2 + F_2^2 + 2F_1 F_2 \\cos\\theta}$. If $F_1 = 10$ N, $F_2 = 15$ N, and the resultant force is $R = 20$ N, find the value of $\\cos\\theta$.",
+      "hint": "Square the resultant force equation and substitute the given values to solve for $\\cos\\theta$.",
+      "answer": "$\\cos\\theta = \\frac{1}{8}$",
+      "difficulty": 3
+    },
+    {
+      "question": "In an oscillating system, the displacement is given by $x(t) = A \\sin(\\omega t + \\phi)$. If at $t=0$, $x(0) = A/2$ and the velocity $v(0) = A\\omega \\cos(\\phi) > 0$, find the possible value(s) of the phase angle $\\phi$ in the interval $[0, 2\\pi)$.",
+      "hint": "Use the given conditions $x(0) = A/2$ and $v(0) > 0$. The velocity is the time derivative of the displacement. Solve for $\\sin(\\phi)$ and use the sign of $\\cos(\\phi)$ to determine the quadrant for $\\phi$.",
+      "answer": "$\\phi = \\frac{\\pi}{6}$",
+      "difficulty": 4
+    },
+    {
+      "question": "A plane is flying at an angle of elevation $\\theta$. Its altitude is $h$. The horizontal distance from the point of observation is $d$. Express the altitude $h$ in terms of the slant range $s$ (distance from observer to plane) and the angle $\\theta$.",
+      "hint": "Consider the right-angled triangle formed by the altitude, the horizontal distance, and the slant range.",
+      "answer": "$h = s \\sin\\theta$",
+      "difficulty": 3
+    },
+    {
+      "question": "Simplify the expression: $\\cos^4\\theta - \\sin^4\\theta$",
+      "hint": "Factor the expression as a difference of squares and use the identity $\\sin^2\\theta + \\cos^2\\theta = 1$.",
+      "answer": "$\\cos(2\\theta)$",
+      "difficulty": 3
+    },
+    {
+      "question": "A wave traveling along a string is described by $y(x, t) = A \\sin(kx - \\omega t)$. Find the value of $x$ where the displacement is $A/\\sqrt{2}$ at time $t=0$. Assume the smallest positive value of $x$.",
+      "hint": "Set $t=0$ and $y(x, 0) = A/\\sqrt{2}$. Solve the resulting trigonometric equation for $kx$ and then for $x$.",
+      "answer": "$x = \\frac{\\pi}{4k}$",
+      "difficulty": 3
+    },
+    {
+      "question": "If $\\tan\\theta = \\frac{3}{4}$ and $\\theta$ is in the first quadrant, find the value of $\\sin(2\\theta)$.",
+      "hint": "Find $\\sin\\theta$ and $\\cos\\theta$ using the given $\\tan\\theta$ and the quadrant information. Then use the double angle identity for $\\sin(2\\theta)$.",
+      "answer": "$\\frac{24}{25}$",
+      "difficulty": 3
+    },
+    {
+      "question": "A block of mass $m$ is on an inclined plane with angle of inclination $\\theta$. The component of gravitational force parallel to the plane is $mg\\sin\\theta$ and the component perpendicular to the plane is $mg\\cos\\theta$. If the ratio of the parallel component to the perpendicular component is $\\sqrt{3}$, find the value of $\\theta$ in the range $[0, \\pi/2)$.",
+      "hint": "Set up the ratio of the two force components and solve for $\\tan\\theta$.",
+      "answer": "$\\theta = \\frac{\\pi}{3}$ or $60^\circ$",
+      "difficulty": 3
+    },
+    {
+      "question": "Prove the identity: $(\\sin\\theta + \\cos\\theta)^2 = 1 + \\sin(2\\theta)$",
+      "hint": "Expand the left side of the equation and use the identity $\\sin^2\\theta + \\cos^2\\theta = 1$ and the double angle identity for $\\sin(2\\theta)$.",
+      "answer": "Proof requires algebraic manipulation of the left side to match the right side.",
+      "difficulty": 3
+    },
+    {
+      "question": "In AC circuits, the instantaneous voltage is $V(t) = V_0 \\sin(\\omega t)$ and instantaneous current is $I(t) = I_0 \\sin(\\omega t + \\phi)$, where $\\phi$ is the phase difference. The instantaneous power is $P(t) = V(t)I(t)$. Express $P(t)$ in a form that shows a term oscillating at $2\\omega t$.",
+      "hint": "Multiply the expressions for $V(t)$ and $I(t)$. Use the product-to-sum identity $2\\sin A \\sin B = \\cos(A-B) - \\cos(A+B)$.",
+      "answer": "$P(t) = \\frac{V_0 I_0}{2} [\\cos(-\\phi) - \\cos(2\\omega t + \\phi)] = \\frac{V_0 I_0}{2} [\\cos\\phi - \\cos(2\\omega t + \\phi)]$",
+      "difficulty": 4
+    },
+    {
+      "question": "Solve the equation $\\tan\\theta + \\cot\\theta = 2$ for $\\theta$ in the interval $(0, \\pi/2)$.",
+      "hint": "Express $\\cot\\theta$ in terms of $\\tan\\theta$. Rewrite the equation in terms of $\\sin\\theta$ and $\\cos\\theta$ or solve the quadratic in $\\tan\\theta$.",
+      "answer": "$\\theta = \\frac{\\pi}{4}$",
+      "difficulty": 3
+    },
+    {
+      "question": "Given $\\cos(2\\theta) = \\frac{1}{3}$, find the possible values of $\\sin\\theta$.",
+      "hint": "Use the double angle identity $\\cos(2\\theta) = 1 - 2\\sin^2\\theta$. Solve for $\\sin^2\\theta$ and then for $\\sin\\theta$.",
+      "answer": "$\\sin\\theta = \\pm\\sqrt{\\frac{1 - \\cos(2\\theta)}{2}} = \\pm\\sqrt{\\frac{1 - 1/3}{2}} = \\pm\\sqrt{\\frac{2/3}{2}} = \\pm\\sqrt{\\frac{1}{3}} = \\pm\\frac{1}{\\sqrt{3}}$",
+      "difficulty": 3
+    },
+    {
+      "question": "Simplify: $\\frac{1 - \\cos(2\\theta)}{\\sin(2\\theta)}$",
+      "hint": "Use the double angle identities for $\\cos(2\\theta)$ and $\\sin(2\\theta)$.",
+      "answer": "$\\tan\\theta$",
+      "difficulty": 3
+    },
+    {
+      "question": "A particle moves in a circle such that its position vector at time $t$ makes an angle $\\theta = \\omega t$ with the x-axis. The x-component of its velocity is proportional to $-\\sin(\\omega t)$ and the y-component is proportional to $\\cos(\\omega t)$. Express the total speed, which is the magnitude of the velocity vector, in terms of the constants of proportionality and $\\omega t$.",
+      "hint": "Let the velocity vector be $\\vec{v} = v_x \\hat{i} + v_y \\hat{j}$. The speed is $|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$. Assume $v_x = -v_{max} \\sin(\\omega t)$ and $v_y = v_{max} \\cos(\\omega t)$.",
+      "answer": "Speed $= v_{max} \\sqrt{\\sin^2(\\omega t) + \\cos^2(\\omega t)} = v_{max}$",
+      "difficulty": 3
+    },
+    {
+      "question": "If $\\sin\\theta + \\cos\\theta = \\frac{1}{2}$, find the value of $\\sin(2\\theta)$.",
+      "hint": "Square both sides of the given equation and use the identity $(\\sin\\theta + \\cos\\theta)^2 = 1 + \\sin(2\\theta)$.",
+      "answer": "$\\sin(2\\theta) = -\\frac{3}{4}$",
+      "difficulty": 4
+    },
+    {
+      "question": "Solve the equation $2\\cos^2\\theta + 3\\sin\\theta = 3$ for $\\theta$ in the interval $[0, 2\\pi)$.",
+      "hint": "Rewrite the equation entirely in terms of $\\sin\\theta$ using the identity $\\cos^2\\theta = 1 - \\sin^2\\theta$. Solve the resulting quadratic equation in $\\sin\\theta$.",
+      "answer": "$\\theta = \\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{\pi}{2}$",
+      "difficulty": 4
+    },
+    {
+      "question": "In wave optics, the intensity of light at a point due to the interference of two waves can be given by $I = I_1 + I_2 + 2\\sqrt{I_1 I_2}\\cos\\delta$, where $\\delta$ is the phase difference. If $I_1 = 4I_0$ and $I_2 = 9I_0$, find the ratio of maximum intensity to minimum intensity.",
+      "hint": "Maximum intensity occurs when $\\cos\\delta = 1$ and minimum intensity occurs when $\\cos\\delta = -1$. Substitute these values into the intensity formula.",
+      "answer": "$\\frac{I_{max}}{I_{min}} = \\left(\\frac{\\sqrt{I_1} + \\sqrt{I_2}}{\\sqrt{I_1} - \\sqrt{I_2}}\\right)^2 = \\left(\\frac{\\sqrt{4I_0} + \\sqrt{9I_0}}{\\sqrt{4I_0} - \\sqrt{9I_0}}\\right)^2 = \\left(\\frac{2\\sqrt{I_0} + 3\\sqrt{I_0}}{2\\sqrt{I_0} - 3\\sqrt{I_0}}\\right)^2 = \\left(\\frac{5\\sqrt{I_0}}{-\\sqrt{I_0}}\\right)^2 = (-5)^2 = 25$",
+      "difficulty": 4
+    },
+    {
+      "question": "Simplify: $\\cos(\\pi - \\theta) + \\sin(\\pi/2 + \\theta) + \\tan(\\pi + \\theta)$",
+      "hint": "Use the reduction formulas for trigonometric functions with angles like $\\pi - \\theta$, $\\pi/2 + \\theta$, and $\\pi + \\theta$.",
+      "answer": "$-\\cos\\theta + \\cos\\theta + \\tan\\theta = \\tan\\theta$",
+      "difficulty": 3
+    },
+    {
+      "question": "If $\\tan(\\theta/2) = t$, express $\\sin\\theta$ and $\\cos\\theta$ in terms of $t$. These are the tangent half-angle formulas, useful in some physics substitutions (e.g., integration).",
+      "hint": "Use the double angle formulas for $\\sin\\theta$ and $\\cos\\theta$ and express $\\cos\\theta$ in terms of $\\cos(2 \\cdot \\theta/2) = 2\\cos^2(\\theta/2) - 1$ or $1 - 2\\sin^2(\\theta/2)$. Express $\\sin(\\theta/2)$ and $\\cos(\\theta/2)$ in terms of $\\tan(\\theta/2)$. Consider a right triangle with opposite side $t$ and adjacent side 1.",
+      "answer": "$\\sin\\theta = \\frac{2t}{1+t^2}$, $\\cos\\theta = \\frac{1-t^2}{1+t^2}$",
+      "difficulty": 4
+    },
+    {
+      "question": "In the study of simple harmonic motion, the position of an object is $x(t) = A \\cos(\\omega t)$. Show that the acceleration $a(t) = \\frac{d^2x}{dt^2}$ is proportional to $-x(t)$.",
+      "hint": "Calculate the first and second derivatives of $x(t)$ with respect to time. Substitute $x(t)$ into the expression for $a(t)$.",
+      "answer": "$v(t) = \\frac{dx}{dt} = -A\\omega \\sin(\\omega t)$, $a(t) = \\frac{dv}{dt} = -A\\omega^2 \\cos(\\omega t) = -\\omega^2 (A \\cos(\\omega t)) = -\\omega^2 x(t)$. Thus, $a(t) \\propto -x(t)$.",
+      "difficulty": 3
+    },
+    {
+      "question": "Solve the equation $\\sin(3\\theta) = \\sin(\\theta)$ for $\\theta$ in the interval $[0, 2\\pi)$.",
+      "hint": "Rewrite the equation as $\\sin(3\\theta) - \\sin(\\theta) = 0$. Use the sum-to-product identity $\\sin A - \\sin B = 2\\cos\\left(\\frac{A+B}{2}\\right)\\sin\\left(\\frac{A-B}{2}\\right)$. Solve the resulting factors for $\\theta$. Remember that $\\sin x = 0$ when $x = n\\pi$ and $\\cos x = 0$ when $x = (n + 1/2)\\pi$ for integer $n$.",
+      "answer": "$\\theta = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, 2\\pi/3, 4\\pi/3$",
+      "difficulty": 4
+    },
+    {
+      "question": "The distance between two points in polar coordinates $(r_1, \\theta_1)$ and $(r_2, \\theta_2)$ is given by $d = \\sqrt{r_1^2 + r_2^2 - 2r_1 r_2 \\cos(\\theta_2 - \\theta_1)}$. This is a direct application of the Law of Cosines. If $(r_1, \\theta_1) = (4, \\pi/6)$ and $(r_2, \\theta_2) = (3, \\pi/3)$, find the square of the distance between the two points, $d^2$.",
+      "hint": "Substitute the given polar coordinates into the distance formula. Calculate the difference in angles and its cosine.",
+      "answer": "$d^2 = 4^2 + 3^2 - 2(4)(3)\\cos(\\pi/3 - \\pi/6) = 16 + 9 - 24\\cos(\\pi/6) = 25 - 24\\left(\\frac{\\sqrt{3}}{2}\\right) = 25 - 12\\sqrt{3}$",
+      "difficulty": 4
+    },
+    {
+      "question": "If the tension $T$ in a string is resolved into horizontal and vertical components $T_x$ and $T_y$ at an angle $\theta$ to the horizontal, then $T_x = T\\cos\\theta$ and $T_y = T\\sin\\theta$. If $T_x = 10$ N and $T_y = 20$ N, find the value of $\\tan\\theta$.",
+      "hint": "Take the ratio of the vertical component to the horizontal component.",
+      "answer": "$\\tan\\theta = \\frac{T_y}{T_x} = \\frac{20}{10} = 2$",
+      "difficulty": 3
+    }
+  ]
+  const difficultyOrder = {
+    1: "Easy",
+    2: "Moderate",
+    3: "Hard",
+    4: "Extreme",
+  };
+
+  questions.sort((a, b) => {
+    return a.difficulty - b.difficulty;
+  });
+
+  console.log(questions);
+  document.addEventListener("DOMContentLoaded", function () {
+    questions.forEach((q, index) => {
+      const difficulty = difficultyOrder[q.difficulty];
+      let section = document.getElementById(`questions-${difficulty.toLocaleLowerCase()}`);
+      if (!section) {
+        section = document.createElement("section");
+        section.id = `questions-${difficulty.toLowerCase()}`;
+        section.innerHTML = `<h2>${difficulty} Questions</h2>`;
+        document.getElementById("questions").appendChild(section);
+      }
+
+      let questionDiv = document.createElement("div");
+      questionDiv.className = "question";
+      questionDiv.innerHTML = `<p>${index + 1}. ${q.question}</p>`;
+
+      // Hint
+      let hintButton = document.createElement("button");
+      hintButton.innerText = "Show Hint";
+
+      let hintDiv = document.createElement("div");
+      hintDiv.className = "hint";
+      hintDiv.style.display = "none";
+      hintDiv.innerHTML = `<em>Hint:</em> ${q.hint}`;
+
+      hintButton.onclick = function () {
+        hintDiv.style.display = hintDiv.style.display === "none" ? "block" : "none";
+      };
+
+      // Answer
+      let answerButton = document.createElement("button");
+      answerButton.innerText = "Show Answer";
+
+      let answerDiv = document.createElement("div");
+      answerDiv.className = "answer";
+      answerDiv.style.display = "none";
+      answerDiv.innerHTML = `<strong>Answer:</strong> ${q.answer}`;
+
+      answerButton.onclick = function () {
+        answerDiv.style.display = answerDiv.style.display === "none" ? "block" : "none";
+      };
+
+      questionDiv.appendChild(hintButton);
+      questionDiv.appendChild(answerButton);
+      questionDiv.appendChild(hintDiv);
+      questionDiv.appendChild(answerDiv);
+
+      section.appendChild(questionDiv);
+    });
+
+
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+
 </html>
