@@ -19,65 +19,65 @@
     }
 
     body {
-      background-color: #303030;
+      background-color: #111;
       color: #fff;
       padding: 20px;
     }
 
     p {
       margin: 10px 0;
-      font-size: 20px;
+      font-size: 1.2rem;
     }
 
     button {
-      margin: 5px;
-      padding: 10px;
-      background-color: #000000;
+      margin: 0.4em 1em 1em 0;
+      padding: 1em;
+      background-color: #2e35c6;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
     h2 {
-      font-size: 24px;
+      font-size: 3rem;
       margin: 20px 0px 20px 0;
     }
     .question {
-      background-color: #ffffff20;
+      /* background-color: #ffffff20; */
       border-radius: 5px;
-      padding: 20px;
+      padding: 0.5em 1em;
       margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ffffff20;
 
     }
     .hint{
-      background-color: #ffffff20;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 5px;
       padding: 10px;
-      margin-top: 10px;
+      margin: 0.5em 0 ;
     }
     .answer {
-      background-color: #00ff0820;
+      background-color: rgba(0, 255, 0, 0.13);
       border-radius: 5px;
       padding: 10px;
-      margin-top: 10px;
+      margin: 0.5em 0;
     }
 
 
     #questions-easy .question {
-      background-color: rgba(0, 200, 250, 0.1);
+      background-color: rgba(23, 42, 64, 0.426);
     }
 
     #questions-moderate .question {
-      background-color: rgba(166, 255, 0, 0.1);
+      background-color: rgba(166, 255, 0, 0.051);
     }
 
     #questions-hard .question {
-      background-color: rgba(255, 247, 0, 0.1);
+      background-color: rgba(255, 247, 0, 0.051);
     }
     
     #questions-extreme .question {
-      background-color: rgba(255, 0, 0, 0.1);
+      background-color: rgba(255, 0, 0, 0.058);
     }
   </style>
 </head>
@@ -463,7 +463,7 @@ Give me 25 questions on pure trigonometry. DO NOT INCLUDE INVERSE TRIGONOMETRY F
       let hintDiv = document.createElement("div");
       hintDiv.className = "hint";
       hintDiv.style.display = "none";
-      hintDiv.innerHTML = `<em>Hint:</em> ${q.hint}`;
+      hintDiv.innerHTML = `<em>Hint:</em><br> ${q.hint}`;
 
       hintButton.onclick = function () {
         hintDiv.style.display = hintDiv.style.display === "none" ? "block" : "none";
@@ -476,7 +476,7 @@ Give me 25 questions on pure trigonometry. DO NOT INCLUDE INVERSE TRIGONOMETRY F
       let answerDiv = document.createElement("div");
       answerDiv.className = "answer";
       answerDiv.style.display = "none";
-      answerDiv.innerHTML = `<strong>Answer:</strong> ${q.answer}`;
+      answerDiv.innerHTML = `<strong>Answer:</strong>  <br> ${q.answer}`;
 
       answerButton.onclick = function () {
         answerDiv.style.display = answerDiv.style.display === "none" ? "block" : "none";
