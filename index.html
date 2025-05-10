@@ -466,7 +466,13 @@ Give me 25 questions on pure trigonometry. DO NOT INCLUDE INVERSE TRIGONOMETRY F
       hintDiv.innerHTML = `<em>Hint:</em><br> ${q.hint}`;
 
       hintButton.onclick = function () {
-        hintDiv.style.display = hintDiv.style.display === "none" ? "block" : "none";
+        if (hintDiv.style.display === "none") {
+          hintDiv.style.display = "block";
+          hintButton.innerText = "Hide Hint";
+        } else {
+          hintDiv.style.display = "none";
+          hintButton.innerText = "Show Hint";
+        }
       };
 
       // Answer
@@ -479,7 +485,14 @@ Give me 25 questions on pure trigonometry. DO NOT INCLUDE INVERSE TRIGONOMETRY F
       answerDiv.innerHTML = `<strong>Answer:</strong>  <br> ${q.answer}`;
 
       answerButton.onclick = function () {
-        answerDiv.style.display = answerDiv.style.display === "none" ? "block" : "none";
+        if (answerDiv.style.display === "none") {
+          answerDiv.style.display = "block";
+          answerButton.innerText = "Hide Answer";
+        } else {
+          answerDiv.style.display = "none";
+          answerButton.innerText = "Show Answer";
+
+        }
       };
 
       questionDiv.appendChild(hintButton);
